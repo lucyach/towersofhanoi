@@ -1,4 +1,5 @@
 from turtle import *
+import turtle
 
 pole1_main = []
 pole2_main = []
@@ -119,6 +120,8 @@ def move(pole1, pole2, pole3):
 
 def drawPoles():
     clearscreen()
+    hideturtle()
+    turtle.speed(0)
     # draw poles
     penup()
     goto(-300, 0)
@@ -143,6 +146,21 @@ def drawPoles():
 
     
 def drawRing(num, pole, loc, y_pos):
+    t = turtle.Turtle()
+    t.speed(0)
+    t.hideturtle()
+
+    if num == 1:
+        t.fillcolor("red")
+    if num == 2:
+        t.fillcolor("orange")
+    if num == 3:
+        t.fillcolor("yellow")
+    if num == 4:
+        t.fillcolor("green")
+    if num == 5:
+        t.fillcolor("blue")
+
     x = 0
     y = 0
     if pole == 1:
@@ -154,11 +172,13 @@ def drawRing(num, pole, loc, y_pos):
 
     y = y_pos + loc
     
-    penup()
-    goto(x, y)
-    pendown()
-    circle(num*5)
-    penup()
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.begin_fill() 
+    t.circle(num*5)
+    t.end_fill()
+    t.penup()
 
 
 newGame()
