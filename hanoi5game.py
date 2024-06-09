@@ -115,6 +115,7 @@ def move(pole1, pole2, pole3):
             y_suggest = 0
             for i in range(0, len(pole3)): # pole 3
                 drawRing(pole3[i], 3, i, y_suggest)
+                y_suggest += pole3[i]*10
 
             move(pole1, pole2, pole3)
 
